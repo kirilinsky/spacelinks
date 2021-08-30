@@ -1,0 +1,112 @@
+main.main {
+  display: grid;
+  background: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  grid-template-columns: 2fr 2fr 3fr 3fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "VENUS . JUPITER ." ". MARS . SATURN";
+  overflow: hidden;
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 2fr 1fr 2fr;
+    grid-template-areas: "VENUS ." ". JUPITER" " MARS ." "SATURN SATURN";
+    overflow-y: auto;
+  }
+}
+.planet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: currentColor;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: 2s linear;
+  }
+  &.trf {
+    &::after {
+      width: 300vw;
+      height: 300vh;
+      transition: 2s;
+
+      transform: translate(-45%, -40%);
+      z-index: 5;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    height: 55vh;
+  }
+  div {
+    width: 100%;
+    height: 100%;
+  }
+  &-ico {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+}
+.mars {
+  grid-area: MARS;
+  color: var(--accent-mars);
+  cursor: pointer;
+  .planet-ico {
+    background: url("./assets/mars.png") no-repeat bottom right;
+    background-size: contain;
+    @media screen and (max-width: 1100px) {
+      background-position: center center;
+    }
+  }
+}
+.saturn {
+  grid-area: SATURN;
+  color: var(--accent-saturn);
+  .planet-ico {
+    background: url("./assets/saturn.png") no-repeat bottom right;
+    background-size: contain;
+    @media screen and (max-width: 1100px) {
+      background-position: center center;
+    }
+  }
+}
+.venus {
+  grid-area: VENUS;
+  color: var(--accent-venus);
+  .planet-ico {
+    background: url("./assets/venus.png") no-repeat bottom right;
+    background-size: contain;
+    @media screen and (max-width: 1100px) {
+      background-position: center center;
+    }
+  }
+}
+.jupiter {
+  grid-area: JUPITER;
+  color: var(--accent-jupiter);
+  .planet-ico {
+    background: url("./assets/jupiter.png") no-repeat bottom right;
+    background-size: contain;
+    @media screen and (max-width: 1100px) {
+      background-position: center center;
+    }
+  }
+}
+
+@keyframes trs {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(10);
+  }
+}
