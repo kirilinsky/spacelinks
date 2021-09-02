@@ -42,6 +42,7 @@ const tags = [
   { title: "vue", fontSize: 14 },
   { title: "ccs in js", fontSize: 18 },
   { title: "EJS", fontSize: 11 },
+  { title: "JWT", fontSize: 21 },
 ];
 
 const Skills = () => {
