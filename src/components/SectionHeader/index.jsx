@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import backIco from "./assets/back.svg";
 
-const SectionHeader = () => {
+const SectionHeader = ({ title = "title" }) => {
   const _history = useHistory();
   return (
     <div className="section-header">
@@ -9,9 +10,9 @@ const SectionHeader = () => {
         onClick={() => _history.push("/")}
         className="section-header_back"
       >
-        back
+        <img src={backIco} alt="back" />
       </button>
-      h
+      {title}
     </div>
   );
 };

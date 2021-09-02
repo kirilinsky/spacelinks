@@ -1,4 +1,31 @@
 .bio {
-  background: var(--accent-venus);
-  box-shadow: 0 0 3px var(--accent-venus);
+  background: var(--accent-mars);
+  .section-body {
+    padding: 0;
+  }
+  &-grid {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: grid;
+    gap: 1px;
+    grid: minmax(250px, 1fr) 2fr / 1fr 2fr;
+    @media screen and (max-width: 750px) {
+      grid: minmax(250px, 1fr) minmax(210px, 1fr) 1fr/ 1fr;
+    }
+    &-cell {
+      display: flex;
+      flex-direction: column;
+      img,
+      a {
+        max-height: 28px;
+        margin: 9px 0;
+        color: #fff;
+      }
+      &-pic {
+        background: url("./assets/pic.png") no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
 }

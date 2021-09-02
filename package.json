@@ -2,14 +2,17 @@
   "name": "spacelinks",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "aos": "^2.3.4",
     "node-sass": "^4.0.0",
+    "randomcolor": "^0.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-parallax-tilt": "^1.5.57",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-tag-cloud": "^1.3.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

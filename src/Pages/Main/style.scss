@@ -4,15 +4,20 @@ main.main {
   width: 100%;
   height: 100%;
   padding: 5px;
-  grid-template-columns: 2fr 2fr 3fr 3fr;
+  grid-template-columns: 2fr 3fr 3fr 1fr;
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: "VENUS . JUPITER ." ". MARS . SATURN";
+  grid-template-areas: "MARS . JUPITER ." " . SATURN . .";
   overflow: hidden;
   @media screen and (max-width: 1100px) {
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 1fr 2fr 1fr 2fr;
-    grid-template-areas: "VENUS ." ". JUPITER" " MARS ." "SATURN SATURN";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-areas: "MARS .  ." ". JUPITER JUPITER" " SATURN  . .";
     overflow-y: auto;
+  }
+  @media screen and (max-width: 850px) {
+    grid-template-areas: "MARS .  . " "  . . JUPITER " " SATURN   SATURN.  ";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 25vh 35vh 25vh;
   }
 }
 .planet {
@@ -46,7 +51,7 @@ main.main {
   @media screen and (max-width: 1100px) {
     height: 55vh;
   }
-  div {
+  & > div {
     width: 100%;
     height: 100%;
   }
@@ -54,6 +59,26 @@ main.main {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    position: relative;
+    &-title {
+      font-size: 27px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: max-content;
+      height: min-content;
+      transform: translate(-35%, -30%);
+      mix-blend-mode: difference;
+      font-weight: bold;
+      @media screen and (max-width: 850px) {
+        left: -40%;
+      }
+      &.left-side {
+        @media screen and (max-width: 850px) {
+          left: 100%;
+        }
+      }
+    }
   }
 }
 .mars {
@@ -79,7 +104,7 @@ main.main {
     }
   }
 }
-.venus {
+/* .venus {
   grid-area: VENUS;
   color: var(--accent-venus);
   .planet-ico {
@@ -89,7 +114,7 @@ main.main {
       background-position: center center;
     }
   }
-}
+} */
 .jupiter {
   grid-area: JUPITER;
   color: var(--accent-jupiter);

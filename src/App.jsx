@@ -1,7 +1,7 @@
 import {
   Redirect,
   Route,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
 } from "react-router-dom";
 import AOS from "aos";
@@ -9,12 +9,13 @@ import Header from "./components/Header";
 import Main from "./Pages/Main";
 import Bio from "./Pages/Bio";
 import Projects from "./Pages/Projects";
+import Skills from "./Pages/Skills";
 function App() {
   AOS.init();
   return (
     <Router>
       <div className="space">
-        <Header />
+        {/*  <Header /> */}
         <Switch>
           <Route exact path="/">
             <Main />
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/projects">
             <Projects />
+          </Route>
+          <Route exact path="/skills">
+            <Skills />
           </Route>
         </Switch>
       </div>

@@ -6,23 +6,23 @@ import { useHistory } from "react-router-dom";
 const planets = [
   {
     id: 0,
-    name: "venus",
+    name: "mars",
+    title: "bio",
     path: "/bio",
   },
-  {
-    id: 1,
-    name: "mars",
-    path: "/skills",
-  },
+
   {
     id: 2,
     name: "jupiter",
-    path: "/projects",
+
+    title: "skills",
+    path: "/skills",
   },
   {
     id: 3,
     name: "saturn",
-    path: "/links",
+    title: "projects",
+    path: "/projects",
   },
 ];
 const Main = () => {
@@ -37,7 +37,7 @@ const Main = () => {
   };
   return (
     <main className="main">
-      {planets.map((planet) => (
+      {planets.map((planet, index) => (
         <div
           key={planet.id}
           onClick={() => goTo(planet)}
@@ -45,8 +45,14 @@ const Main = () => {
             planet.name
           }`}
         >
-          <Tilt tiltReverse tiltAxis={"y"}>
-            <div className="planet-ico"></div>
+          <Tilt tiltReverse>
+            <div className="planet-ico">
+              <div
+                className={` planet-ico-title ${index % 2 ? "" : "left-side"}`}
+              >
+                {planet.title}
+              </div>
+            </div>
           </Tilt>
         </div>
       ))}
